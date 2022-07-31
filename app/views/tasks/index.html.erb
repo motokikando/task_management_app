@@ -2,7 +2,19 @@
 
 <body>
     <%= link_to "新規登録",  new_task_path %>
-    <% @tasks.each do |task|%>
-    <%= task.name %><br>
-    <% end %> 
+    <table class="table table-hover">
+            
+            <tr>
+                <th><%= Task.human_attribute_name(:name) %></th>
+                <th><%= Task.human_attribute_name(:created_at) %></th>
+            </tr>
+        <tbody>
+            <% @tasks.each do |task|%>
+            <tr>
+                <td><%= task.name %></td>
+                <td><%= task.description %></td>
+            <% end %>
+            </tr>
+        </tbody>
+    </table>
 </body>
