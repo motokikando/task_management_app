@@ -8,8 +8,22 @@ class TasksController < ApplicationController
   end
 
   def new
+    @task = Task.new
+  end
+
+  def create
+    task = Task.new(task_params)
+    if task.save
+      # flash[:success] = "タスク#{task.name} を登録しました。"
+      redirect_to tasks_url, notice: "タスク#{task.name} を登録しました。"
+    end 
   end
 
   def edit
   end
+
+  def task_params 
+    #paramsとして与えられたデータをrequire(:task)モデルでpermitする(:name, :description)を
+    params.require(:task).permit(:name, :description)
+  end 
 end
