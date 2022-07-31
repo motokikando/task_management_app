@@ -1,24 +1,26 @@
 <h1>Tasks#show</h1>
 
+<%= link_to "一覧",  tasks_path %>
 <table class="table table-hover">
     <tr>
-        <th>
-            <% @task.id%>
-        </th>
+        <th><%= Task.human_attribute_name(:id) %></th>
+        <td><%= @task.id%></td>
     </tr>
     <tr>
-        <th>
-            <% @task.description%>
-        </th>
+        <th><%= Task.human_attribute_name(:name) %></th>
+        <td><%= @task.description%></td>
     </tr>
     <tr>
-        <th>
-            <% @task.created_at%>
-        </th>
+        <th><%= Task.human_attribute_name(:description) %></th>
+        <td><%= @task.description%></td>
     </tr>
     <tr>
-        <th>
-            <% @task.updated_at%>
-        </th>
+        <th><%= Task.human_attribute_name(:created_at) %></th>
+        <td><%= @task.created_at%></td>
+    </tr>
+    <tr>
+        <th><%= Task.human_attribute_name(:updated_at) %></th>
+        <td><%= @task.updated_at%></td>
     </tr>
 </table>
+
