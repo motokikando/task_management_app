@@ -2,6 +2,7 @@
 
 <%= link_to "一覧",  tasks_path %>
 <%= form_with(model: @task, local: true) do |f|%>
+    <%= render 'shared/error_messages' %>
     <%= f.label :name %>
     <%= f.text_field :name %>
     <%= f.label :description %>
