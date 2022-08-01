@@ -11,7 +11,8 @@
             <% @tasks.each do |task|%>
             <tr>
                 <td><%= link_to task.name, task %></td>
-                <td><%= task.description %></td>
+                <td><%= task.created_at %></td>
+                <td><%= link_to "編集", edit_task_path(task) %></td>
             <% end %>
             </tr>
         </tbody>

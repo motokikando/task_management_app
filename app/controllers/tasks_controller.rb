@@ -22,7 +22,19 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @task = Task.find(params[:id])
   end
+
+  def update
+    @task = Task.find(params[:id])
+    if @task.update(task_params)
+      flash[:success] = "タスク#{@task.name} を更新しました。"
+      redirect_to tasks_url
+    else
+      render 'edit'
+  end 
+
+   end
 
   def task_params 
     #paramsとして与えられたデータをrequire(:task)モデルでpermitする(:name, :description)を
