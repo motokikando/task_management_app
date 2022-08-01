@@ -13,6 +13,7 @@
                 <td><%= link_to task.name, task %></td>
                 <td><%= task.created_at %></td>
                 <td><%= link_to "編集", edit_task_path(task) %></td>
+                <td><%= link_to "削除", task, method: :delete, data: {confirm: "#{task.name}を削除します。よろしいですか？"} %></td>
             <% end %>
             </tr>
         </tbody>

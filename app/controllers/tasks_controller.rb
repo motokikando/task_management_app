@@ -32,9 +32,16 @@ class TasksController < ApplicationController
       redirect_to tasks_url
     else
       render 'edit'
-  end 
+    end 
+  end
 
-   end
+  def destroy
+    @task = Task.find(params[:id])
+    if @task.destroy
+      flash[:success] = "タスク#{@task.name} を削除しました。"
+      redirect_to tasks_url
+    end 
+  end 
 
   def task_params 
     #paramsとして与えられたデータをrequire(:task)モデルでpermitする(:name, :description)を
