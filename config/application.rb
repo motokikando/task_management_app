@@ -41,5 +41,4 @@ module TaskManagementApp
         routing_specs: false
     end
   end
-  end
 end
